@@ -19,39 +19,39 @@ export class DataService {
 
   setInitialCustomerDetailData(){
     var customerDetails = new CustomerDetails();
-    customerDetails.firstName = 'rahul';
-    customerDetails.lastName = 'dravid';
-    customerDetails.loanNumber = 1001;
-    customerDetails.address1 = 'addr1';
-    customerDetails.address2 = 'addr2';
+    customerDetails.firstName = 'Chandra';
+    customerDetails.lastName = 'Mohan';
+    customerDetails.loanNumber = 12233;
+    customerDetails.address1 = 'Chennai';
+    customerDetails.address2 = 'Chennai';
     customerDetails.city = 'chennai';
-    customerDetails.amount = 1000;
+    customerDetails.amount = 10000;
     this.loan.push(customerDetails);
 
     customerDetails = new CustomerDetails();
-    customerDetails.firstName = 'sahin';
-    customerDetails.lastName = 'tendulkar';
-    customerDetails.loanNumber = 1002;
-    customerDetails.address1 = 'addr1';
-    customerDetails.address2 = 'addr2';
-    customerDetails.city = 'mumbai';
-    customerDetails.amount = 5000;
+    customerDetails.firstName = 'Ram';
+    customerDetails.lastName = 'Mohan';
+    customerDetails.loanNumber = 12234;
+    customerDetails.address1 = 'Chennai';
+    customerDetails.address2 = 'Chennai';
+    customerDetails.city = 'Chennai';
+    customerDetails.amount = 20000;
     this.loan.push(customerDetails);
   }
 
   setCustomerLoan(){
     var loanDetails = new LoanDetails();
-    loanDetails.loanNumber = 1001;
-    loanDetails.loanTerm = 15;
+    loanDetails.loanNumber = 12233;
+    loanDetails.loanTerm = 24;
     loanDetails.loanType = 'Home Loan';
 
     this.loanDetailsAry.push(loanDetails);
 
 
     loanDetails = new LoanDetails();
-    loanDetails.loanNumber = 1002;
-    loanDetails.loanTerm = 15;
-    loanDetails.loanType = 'Home Loan';
+    loanDetails.loanNumber = 12234;
+    loanDetails.loanTerm = 24;
+    loanDetails.loanType = 'Personal Loan';
     this.loanDetailsAry.push(loanDetails);
 
   }

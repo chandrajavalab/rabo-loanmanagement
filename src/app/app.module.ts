@@ -12,6 +12,7 @@ import {GlobalDataService} from './service/global-data.service';
 import { LogoutComponent } from './logout/logout.component';
 import { AddLoanComponent } from './addloan/addloan.component';
 import { UpdateLoanComponent } from './updateloan/updateloan.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UpdateLoanComponent } from './updateloan/updateloan.component';
     HeaderComponent,
     LogoutComponent,
     AddLoanComponent,
-    UpdateLoanComponent
+    UpdateLoanComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

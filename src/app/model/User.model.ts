@@ -3,4 +3,6 @@ export class User {
     password: String;
     isAdminUser: boolean;
     isLoggedIn : boolean;
+    email: string;
+    id: number;
   }

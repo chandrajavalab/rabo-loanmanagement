@@ -11,14 +11,22 @@ export class UsersService {
 
   userDetails = 
 [{
-    Username :'admin',
-	  Password :'admin123',
+    Username :'Chandra',
+	  Password :'chandra123*',
 	  isAdminUser :false,
     isLoggedIn :false
   },
   {
-    Username :'test',
-	  Password :'test123',
+    Username :'Mohan',
+	  Password :'mohan123*',
+	  isAdminUser :false,
+    isLoggedIn :false
+  },
+  {
+    Username :'Mohan',
+    Password :'mohan123*',
+    email : 'mohan@gmail.com',
+    id : 12233,
 	  isAdminUser :false,
     isLoggedIn :false
   }
@@ -43,7 +51,7 @@ private userData$:BehaviorSubject<User>;
 
 
 
-  public validateUserDetails( userName:String, password:String){
+  public validateUserDetails( userName:String, password:String, email:String, id:number){
     var newUser = new User();
     for(var usr of this.userDetails){
       
@@ -56,6 +64,8 @@ private userData$:BehaviorSubject<User>;
         
         newUser.userName = usr.Username;
         newUser.password = usr.Password;
+        newUser.email = usr.email;
+        newUser.id = usr.id;
         newUser.isAdminUser = usr.isAdminUser;
         newUser.isLoggedIn = usr.isLoggedIn;
 

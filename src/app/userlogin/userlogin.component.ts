@@ -14,7 +14,6 @@ import { User } from '../model/User.model';
   
 })
 export class UserLoginComponent implements OnInit {
-//@ViewChild('f')  loginForm ;
 public userData$: Subscription;
 public invalidUserMessage:String;
 user:User = new User();
@@ -27,7 +26,11 @@ constructor(private userservice : UsersService,private router: Router) {
 
   onSubmit(form :NgForm){
     
-    var userDtl = this.userservice.validateUserDetails(form.value.userData.username,form.value.userData.password);
+    var userDtl = this.userservice.validateUserDetails(
+      form.value.userData.username,
+      form.value.userData.password,
+      form.value.userData.email,
+      form.value.userData.id);
     
     this.userservice.setUserData(userDtl);
     

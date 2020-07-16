@@ -23,6 +23,7 @@
         <p *ngIf="!password.valid && password.touched"> Please enter password</p>
 
        <p> <button class="btn btn-primary" type="submit" [disabled] = "!f.valid" >Login</button></p>
+       <a routerLink="/register" class="btn btn-link">Register</a>
     </div>
 </form>
 </div>
