@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+jumbtron{
+    padding-top: Opx;
+    background: #fff;
+}
+
+form-control.input-group-text{
+    border: 1px solid #008Dff;
+}

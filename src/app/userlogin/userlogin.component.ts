@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/cor
 import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
 import { UsersService } from '../service/users.service';
-import { Subscription }      from 'rxjs';
+import { Subscription } from 'rxjs';
 import { User } from '../model/User.model';
 
 
@@ -18,28 +18,38 @@ public userData$: Subscription;
 public invalidUserMessage:String;
 user:User = new User();
 
-constructor(private userservice : UsersService,private router: Router) {  
+constructor(public service : UsersService, private router: Router) {  
 }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.resetFrom();
+  }
+
+  resetFrom(from?:NgForm){
+    if(from = null)
+    from.resetForm();
+    this.service.formData = {
+      firstName:'',
+      lastName:'',
+      userName: '',
+      password: '',
+      id: null,
+      dateOfBirth:'',
+      email: ''
+    }
+
   }
 
   onSubmit(form :NgForm){
     
-    var userDtl = this.userservice.validateUserDetails(
+    var userDtl = this.service.validateUserDetails(
       form.value.userData.username,
       form.value.userData.password,
       form.value.userData.email,
       form.value.userData.id);
     
-    this.userservice.setUserData(userDtl);
-    
-    if(userDtl.isLoggedIn){
-      
-      this.router.navigateByUrl('/search');  
-    }else{
-      
+      this.service.setUserData(userDtl);
+      this.router.navigateByUrl('/search');      
       this.invalidUserMessage="Invalid Username/Password";
-    } 
-  }
+  } 
 }

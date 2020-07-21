@@ -11,10 +11,10 @@ const routes: Routes = [
   {path : '', redirectTo:'/userlogin',pathMatch:'full'},
   { path: 'register', component: RegisterComponent  },
   {path : 'userlogin', component : UserLoginComponent},
-  {path : 'search', component : SearchComponent},
+  {path : 'search/:id', component : SearchComponent},
   {path : 'logout', component : LogoutComponent},
   {path : 'addloan', component : AddLoanComponent},
-  {path : 'updateloan', component : UpdateLoanComponent},
+  {path : 'updateloan/:id', component : UpdateLoanComponent},
 ];
 
 @NgModule({

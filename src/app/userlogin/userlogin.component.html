@@ -1,32 +1,26 @@
-<div class="container">
-    <h2> User Login </h2>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <div class="login" 
-    ngModelGroup="userData"
-    #userData="ngModelGroup">
-        {{invalidUserMessage}}
-        <label for="username">UserName: </label>
-        <input type=text id="username" class="form-control" placeholder="Username" 
-        ngModel 
-        name="username" 
-        required
-        #username="ngModel"        
-        />
-        <p *ngIf="!username.valid && username.touched"> Please enter user name</p>
-        <label for="password">Password: </label>
-        <input type="password" id ="password" class="form-control" placeholder="password"
-        ngModel
-        name="password" 
-        required
-        #password="ngModel"
-        />
-        <p *ngIf="!password.valid && password.touched"> Please enter password</p>
-
-       <p> <button class="btn btn-primary" type="submit" [disabled] = "!f.valid" >Login</button></p>
-       <a routerLink="/register" class="btn btn-link">Register</a>
-    </div>
-</form>
+<div class="jumbtron">
+    <h4 class="display-4 text-center">User Login</h4>
+    <hr>
+        <form #from="ngForm" autocomplete="off" *ngIf="service.formData">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                </div>
+                <input name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName" class="form control" placeholder="UserName">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white"><i class="fal fa-key"></i></div>
+                </div>
+                <input name="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form control" placeholder="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i>Login</button>
+        </div>
+        <a routerLink="/register" class="btn btn-link">New User Register</a>
+    </form>
 </div>
-
-
-

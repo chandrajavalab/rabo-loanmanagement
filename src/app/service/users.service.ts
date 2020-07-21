@@ -7,20 +7,17 @@ import {User} from '../model/User.model';
   providedIn: 'root'
 })
 export class UsersService {
+  formData:User;
 
 
   userDetails = 
 [{
     Username :'Chandra',
-	  Password :'chandra123*',
-	  isAdminUser :false,
-    isLoggedIn :false
+	  Password :'chandra123*'
   },
   {
     Username :'Mohan',
-	  Password :'mohan123*',
-	  isAdminUser :false,
-    isLoggedIn :false
+	  Password :'mohan123*'
   },
   {
     Username :'Mohan',
@@ -66,10 +63,6 @@ private userData$:BehaviorSubject<User>;
         newUser.password = usr.Password;
         newUser.email = usr.email;
         newUser.id = usr.id;
-        newUser.isAdminUser = usr.isAdminUser;
-        newUser.isLoggedIn = usr.isLoggedIn;
-
-        
         break;
       }else{
         

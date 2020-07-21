@@ -15,10 +15,6 @@ import {DataService} from '../service/data.service'
 })
 export class SearchComponent implements OnInit {
   resultList:Array<SearchResult>;
-  
-  isLoggedIn:boolean = false;
-  
-  isAdminUser:boolean = false;
 
   constructor(private userservice : UsersService,private searchService:SearchService,private router: Router) { }
 
@@ -35,16 +31,14 @@ msg:User;
        userData$=>{
         this.msg = userData$;
       });
-
-      this.isAdminUser = this.msg.isAdminUser
     
-    this.resultList = this.searchService.searchLoanDetail(form.value.searchData.firstName,
+      this.resultList = this.searchService.searchLoanDetail(form.value.searchData.firstName,
       form.value.searchData.lastName,form.value.searchData.loanNumber);
   }
 
   onEdit(loanNumber:Number){
     
-    this.router.navigate(['/update-loan'], { queryParams: { loanNumber: loanNumber } });
+    this.router.navigate(['/updateloan'], { queryParams: { loanNumber: loanNumber } });
 
 
   }
