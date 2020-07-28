@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { UserLoginComponent } from './userlogin/userlogin.component';
 import { SearchComponent } from './search/search.component';
 import { HeaderComponent } from './header/header.component';
-import { UsersService } from './service/users.service';
 import { GlobalDataService } from './service/global-data.service';
 import { LogoutComponent } from './logout/logout.component';
 import { AddLoanComponent } from './addloan/addloan.component';
 import { UpdateLoanComponent } from './updateloan/updateloan.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,10 +29,11 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   
-  providers:[UsersService,GlobalDataService],
+  providers:[GlobalDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

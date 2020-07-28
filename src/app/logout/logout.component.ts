@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { UsersService } from '../service/users.service';
 import { User } from '../model/User.model';
 
 @Component({
@@ -11,11 +10,11 @@ import { User } from '../model/User.model';
 export class LogoutComponent implements OnInit {
   userData:User;
 
-  constructor(private userservice : UsersService,private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     
-    this.userservice.setUserData(new User());
+    
     this.router.navigate(['']);
     
   }

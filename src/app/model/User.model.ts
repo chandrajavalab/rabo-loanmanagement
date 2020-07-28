@@ -1,9 +1,13 @@
 export class User {
-    id: number;
+    userId: number;
     firstName: String;
     lastName: String;
-    dateOfBirth: String;
+    dateOfBirth: Date;
     email: string;
     userName: String;
     password: String;
+    addressLine1: String;
+    addressLine2: String;
+
+    constructor(){}
   }

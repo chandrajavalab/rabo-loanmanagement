@@ -32,7 +32,7 @@ export class LoanService{
     var dataService = new DataService();
     for(var dtl of dataService.loanDetailsAry){
       if(dtl.loanNumber == loanDetails.loanNumber){
-        dtl.loanTerm = loanDetails.loanTerm;
+        dtl.noOfMonths = loanDetails.noOfMonths;
         dtl.loanType = loanDetails.loanType;
       }
     }

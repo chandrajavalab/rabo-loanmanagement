@@ -42,7 +42,7 @@ export class DataService {
   setCustomerLoan(){
     var loanDetails = new LoanDetails();
     loanDetails.loanNumber = 12233;
-    loanDetails.loanTerm = 24;
+    loanDetails.noOfMonths = 24;
     loanDetails.loanType = 'Home Loan';
 
     this.loanDetailsAry.push(loanDetails);
@@ -50,7 +50,7 @@ export class DataService {
 
     loanDetails = new LoanDetails();
     loanDetails.loanNumber = 12234;
-    loanDetails.loanTerm = 24;
+    loanDetails.noOfMonths = 24;
     loanDetails.loanType = 'Personal Loan';
     this.loanDetailsAry.push(loanDetails);
 

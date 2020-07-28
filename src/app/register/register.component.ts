@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../model/User.model';
-import { UsersService } from '../service/users.service';
 import { Subscription }      from 'rxjs';
+import { LoanManagementServiceService } from '../service/loan-management-service.service';
 
 @Component({
   selector: 'app-register',
@@ -11,39 +11,27 @@ import { Subscription }      from 'rxjs';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  public userData$: Subscription;
-  public invalidUserMessage:String;
-  user:User = new User();
+  
+  user = new User();
+  message = '';
 
-constructor(public service : UsersService, private router: Router) {}
+constructor( private service: LoanManagementServiceService, private router: Router) {}
   
   ngOnInit(){
-    this.resetFrom();
   }
 
-  resetFrom(from?:NgForm){
-    if(from = null)
-    from.resetForm();
-    this.service.formData = {
-      firstName:'',
-      lastName:'',
-      userName: '',
-      password: '',
-      id: null,
-      dateOfBirth:'',
-      email: ''
-    }
+  registerUser(){
+    this.service.registerUserFromRemote(this.user).subscribe(
+      data => {
+        console.log("Response Recived");
+        this.router.navigate(['/userlogin'])
+      },
+      error => {
+        console.log("Exception Occured");
+        this.message = "In-valid user or user already exit";
+      }
+    )
   }
-onSubmit(form :NgForm){
-    
-  var userDtl = this.service.validateUserDetails(
-    form.value.userData.username,
-    form.value.userData.password,
-    form.value.userData.name,
-    form.value.userData.id);
-  
-  this.service.setUserData(userDtl);
 
-      this.router.navigate(['/login']);
-    } 
+ 
 }

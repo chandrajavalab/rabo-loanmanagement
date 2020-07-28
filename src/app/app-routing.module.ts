@@ -9,12 +9,12 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path : '', redirectTo:'/userlogin',pathMatch:'full'},
-  { path: 'register', component: RegisterComponent  },
+  { path: 'registeruser', component: RegisterComponent  },
   {path : 'userlogin', component : UserLoginComponent},
-  {path : 'search/:id', component : SearchComponent},
+  {path : 'search', component : SearchComponent},
   {path : 'logout', component : LogoutComponent},
   {path : 'addloan', component : AddLoanComponent},
-  {path : 'updateloan/:id', component : UpdateLoanComponent},
+  {path : 'updateloan', component : UpdateLoanComponent},
 ];
 
 @NgModule({

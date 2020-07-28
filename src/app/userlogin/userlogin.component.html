@@ -1,26 +1,35 @@
-<div class="jumbtron">
-    <h4 class="display-4 text-center">User Login</h4>
-    <hr>
-        <form #from="ngForm" autocomplete="off" *ngIf="service.formData">
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+<div style="min-width: 100%;  min-height: 200%;background-image: url('../assets/img/agricultural_img.jpg');">
+    <br><br><br><br><br>
+    <div class="container" style="max-width: 500px; background-color: skyblue;">
+        <h4 class="text actual text-center">User Login</h4>
+        <hr>
+        <form autocomplete="off" #loginfrom="ngForm" (ngSubmit)="loginUser()">
+            <small class="text-danger">{{message}}</small>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="userName" name="userName" [(ngModel)]="user.userName" 
+                    class="form-control" placeholder="Enter User Name" required #userName="ngModel"
+                    [class.is-invalid]="userName.invalid && userName.touched">
                 </div>
-                <input name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName" class="form control" placeholder="UserName">
+                <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">User name is required field</small>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text bg-white"><i class="fal fa-key"></i></div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fal fa-key"></i></div>
+                    </div>
+                    <input name="password" type="password"  [(ngModel)]="user.password" 
+                    class="form-control" placeholder="Enter password" required #password="ngModel"
+                    [class.is-invalid]="password.invalid && password.touched"> 
                 </div>
-                <input name="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form control" placeholder="password">
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
             </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i>Login</button>
-        </div>
-        <a routerLink="/register" class="btn btn-link">New User Register</a>
-    </form>
+            <button [disabled]="loginfrom.invalid" type="submit" class="btn btn-info"><i class="fa fa-database"></i>Login</button>
+            <small class="float-right btextval" [routerLink]="['/registeruser']">New User ? Register here</small>
+        </form>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>

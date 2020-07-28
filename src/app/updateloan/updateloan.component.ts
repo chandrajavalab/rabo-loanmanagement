@@ -35,7 +35,7 @@ resultData:LoanDetails;
     this.loanNumber = this.resultData.loanNumber;
     
     this.loanType = this.resultData.loanType;
-    this.loanTerm = this.resultData.loanTerm;
+    this.loanTerm = this.resultData.noOfMonths;
    // this.amount = this.resultData.amount;
 
   }
@@ -44,7 +44,7 @@ resultData:LoanDetails;
     
     var loanDetails = new LoanDetails();
     loanDetails.loanNumber = form.value.updateLoanData.loanNumber;
-    loanDetails.loanTerm = form.value.updateLoanData.loanTerm;
+    loanDetails.noOfMonths = form.value.updateLoanData.loanTerm;
     loanDetails.loanType = form.value.updateLoanData.loanType;
     loanDetails.amount = form.value.updateLoanData.amount;
     this.loanService.updateLoanDetails(loanDetails);

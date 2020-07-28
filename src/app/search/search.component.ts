@@ -1,12 +1,11 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
-import {SearchService} from '../service/search.service'
-import {SearchResult} from "../model/Search.model"
-import { UsersService } from '../service/users.service';
+import {SearchService} from '../service/search.service';
+import {SearchResult} from "../model/Search.model";
 import { Subscription, Subject }      from 'rxjs';
 import { User } from '../model/User.model';
-import {DataService} from '../service/data.service'
+import {DataService} from '../service/data.service';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +15,7 @@ import {DataService} from '../service/data.service'
 export class SearchComponent implements OnInit {
   resultList:Array<SearchResult>;
 
-  constructor(private userservice : UsersService,private searchService:SearchService,private router: Router) { }
+  constructor(private searchService:SearchService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,12 +24,7 @@ export class SearchComponent implements OnInit {
 msg:User;
   onSubmit(form :NgForm){
     var dataService = new DataService();
-    
 
-     this.userservice.getUserData().subscribe(
-       userData$=>{
-        this.msg = userData$;
-      });
     
       this.resultList = this.searchService.searchLoanDetail(form.value.searchData.firstName,
       form.value.searchData.lastName,form.value.searchData.loanNumber);

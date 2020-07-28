@@ -1,33 +1,108 @@
-<div class="jumbtron">
-    <h4 class="display-4 text-center">User Register</h4>
-        <form #from="ngForm" autocomplete="off" *ngIf="service.formData">
-        <div class="form-group">
-            <label>First Name: </label>
-            <input name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName" class="form control">
-        </div>
-        <div class="form-group">
-            <label>Last Name: </label>
-            <input name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" class="form control">
-        </div>
-        <div class="form-group">
-            <label>Date of bitrh: </label>
-            <input name="dateOfBirth" #dateOfBirth="ngModel" [(ngModel)]="service.formData.dateOfBirth" class="form control">
-        </div>
-        <div class="form-group">
-            <label>Email: </label>
-            <input name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form control">
-        </div>
-        <div class="form-group">
-            <label>UserName: </label>
-            <input name="userName" #userName="ngModel" [(ngModel)]="service.formData.userName" class="form control">
-        </div>
-        <div class="form-group">
-            <label>Password: </label>
-            <input name="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form control">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btm btn-dark"><i class="fa fa-database"></i>Register</button>
-        </div>
-        <a routerLink="/userlogin" class="btn btn-link">Exiting User</a>
-    </form>
+<div style="min-width: 100%;  min-height: 200%;background-image: url('../assets/img/agricultural_img.jpg');">
+    <br>
+    <div class="container" style="max-width: 500px; background-color: skyblue;">
+        <h4 class="text actual text-center">User Registration</h4>
+            <form autocomplete="off" #registerfrom="ngForm" (ngSubmit)="registerUser()">
+                <small class="text-danger">{{message}}</small>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="firstName" name="firstName" [(ngModel)]="user.firstName" 
+                    class="form-control" placeholder="Enter First Name" required #firstName="ngModel"
+                    [class.is-invalid]="firstName.invalid && firstName.touched">
+                </div>
+                <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First name is required field</small>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="lastName" name="lastName" [(ngModel)]="user.lastName"
+                    class="form-control" placeholder="Enter Last Name">
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input name="dateOfBirth" type="dateOfBirth" [(ngModel)]="user.dateOfBirth" 
+                    class="form-control" placeholder="Enter Date of bitrh" required #dateOfBirth="ngModel"
+                    [class.is-invalid]="dateOfBirth.invalid && dateOfBirth.touched">
+                </div>
+                <small class="text-danger" [class.d-none]="dateOfBirth.valid || dateOfBirth.untouched">Date of birth is required field</small>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input name="email" type="email" [(ngModel)]="user.email" 
+                    class="form-control" placeholder="Enter Email" required #email="ngModel"
+                    [class.is-invalid]="email.invalid && email.touched">
+                </div>
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required field</small>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="addressLine1" name="addressLine1" [(ngModel)]="user.addressLine1" 
+                    class="form-control" placeholder="Enter Addres line1" required #addressLine1="ngModel"
+                    [class.is-invalid]="addressLine1.invalid && addressLine1.touched">
+                </div>
+                <small class="text-danger" [class.d-none]="addressLine1.valid || addressLine1.untouched">Adderss line1 is required field</small>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fal fa-key"></i></div>
+                    </div>
+                    <input name="addressLine2" type="addressLine2"  [(ngModel)]="user.addressLine2" 
+                    class="form-control" placeholder="Enter Adderss line2"> 
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fas fa-user-circle"></i></div>
+                    </div>
+                    <input type="userName" name="userName" [(ngModel)]="user.userName" 
+                    class="form-control" placeholder="Enter User Name" required #userName="ngModel"
+                    [class.is-invalid]="userName.invalid && userName.touched">
+                </div>
+                <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">User name is required field</small>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fal fa-key"></i></div>
+                    </div>
+                    <input name="password" type="password"  [(ngModel)]="user.password" 
+                    class="form-control" placeholder="Enter password" required #password="ngModel"
+                    [class.is-invalid]="password.invalid && password.touched"> 
+                </div>
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+            </div>
+            <div class="form-group col-md-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white"><i class="fal fa-key"></i></div>
+                    </div>
+                    <input name="cpassword" type="password" (ngModel)="user.password" 
+                    class="form-control" placeholder="Confirm password" required #cpassword="ngModel"
+                    [class.is-invalid]="cpassword.invalid && cpassword.touched"> 
+                </div>
+                <small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">Password and Confirm password must be same</small>
+            </div>
+            
+            <button [disabled]="registerfrom.invalid" type="submit" class="btm btn-info"><i class="fa fa-database"></i>Register</button>
+            <small [routerLink]="['/userlogin']" class="float-right btextval">Exiting User ? Login here</small>
+        </form>
+    </div>
+    <br><br><br>
 </div>

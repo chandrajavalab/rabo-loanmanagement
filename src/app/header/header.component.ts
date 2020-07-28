@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../service/users.service';
 import { Subscription }      from 'rxjs';
 import { User } from '../model/User.model';
 
@@ -10,21 +9,11 @@ import { User } from '../model/User.model';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private userservice : UsersService) { }
-  userLogin:String='';
+  constructor() { }
+  
 
-  setUserLogin(uname:String){
-    this.userLogin =uname;
-  }
-  ngOnInit(): void {
-     this.userservice.getUserData().subscribe(
-      userData$=>{
-        if(userData$ != null)
-        this.setUserLogin(userData$.userName);
-        return userData$;
-      });
+  
+  ngOnInit(): void {}
 
-      
-  }
 
 }
